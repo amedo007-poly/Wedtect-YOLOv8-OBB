@@ -1,0 +1,164 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                  WEDTECT YOLOv8 OBB TRAINING - QUICK START                 ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+📦 FILES CREATED FOR YOU:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ train_local.py
+   └─ Main training script (adapted from Colab for local machine)
+   └─ Comprehensive logging to TRAINING_LOG.txt
+   └─ Auto-detects GPU, extracts dataset, trains, evaluates, exports
+
+✅ requirements.txt
+   └─ All Python dependencies listed
+   └─ Run: pip install -r requirements.txt
+
+✅ README.md
+   └─ Complete documentation
+   └─ Configuration options
+   └─ Troubleshooting guide
+   └─ Performance benchmarks
+
+✅ SETUP_LOG.txt
+   └─ Project structure overview
+   └─ Setup checklist
+   └─ Training configuration
+   └─ Execution steps documented
+
+✅ QUICK_START.txt (this file)
+   └─ Quick reference for training
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 3 SIMPLE STEPS TO TRAIN:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1️⃣  INSTALL DEPENDENCIES
+    Open PowerShell in the Stage Wedtect folder, then:
+    
+    pip install -r requirements.txt
+
+2️⃣  RUN TRAINING
+    
+    python train_local.py
+
+3️⃣  MONITOR PROGRESS
+    
+    Watch the console for real-time updates
+    Check TRAINING_LOG.txt for detailed logs
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⏱️  EXPECTED TIME:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GPU (NVIDIA RTX):    2-4 hours  (100 epochs, batch size 16)
+CPU:                12-24 hours (much slower, not recommended)
+
+If you have GPU, training is MUCH faster! ⚡
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📂 WHAT HAPPENS AUTOMATICALLY:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+The script AUTOMATICALLY:
+  ✅ Detects if you have GPU (CUDA)
+  ✅ Extracts the Roboflow dataset zip file
+  ✅ Validates the dataset structure
+  ✅ Trains YOLOv8 model for 100 epochs
+  ✅ Evaluates on validation set
+  ✅ Creates training plots
+  ✅ Runs inference on test images
+  ✅ Exports the trained model
+  ✅ Logs everything to TRAINING_LOG.txt
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 OUTPUT FILES (After Training):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+runs/obb/wedtect-obb-final/
+  ├── weights/
+  │   ├── best.pt ⭐ (USE THIS - Best model)
+  │   └── last.pt
+  ├── results.csv (Training metrics - open in Excel)
+  ├── results.png (Training graph)
+  └── ... other files
+
+runs/obb/predict/
+  └── (Prediction images with bounding boxes)
+
+TRAINING_LOG.txt (Open this to see what happened)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚙️  CONFIGURATION (if you need to change):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Open train_local.py and find this section (around line 18):
+
+    EPOCHS = 100           # 100 training passes through dataset
+    IMG_SIZE = 640         # Image size (640x640 pixels)
+    BATCH_SIZE = 16        # How many images per iteration
+    WORKERS = 4            # CPU threads for loading data
+
+Adjust as needed:
+  - More EPOCHS = Better accuracy (but takes longer)
+  - Smaller BATCH_SIZE = Lower GPU memory (but slower training)
+  - Larger models = Better accuracy (but much slower)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🆘 COMMON ISSUES:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❌ "Module not found" errors
+   👉 Run: pip install -r requirements.txt
+
+❌ "Out of memory" error
+   👉 In train_local.py, change BATCH_SIZE = 8 (smaller)
+
+❌ GPU not detected
+   👉 Check: python -c "import torch; print(torch.cuda.is_available())"
+   👉 Install CUDA 11.8+: https://developer.nvidia.com/cuda-toolkit
+
+❌ Dataset zip not found
+   👉 Make sure "Wedtect Segmentation.v2i.yolov8-obb.zip" is in this folder
+
+For more help, see README.md
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 AFTER TRAINING - USE YOUR MODEL:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Create a Python script (e.g., inference.py):
+
+    from ultralytics import YOLO
+    
+    # Load your trained model
+    model = YOLO('runs/obb/wedtect-obb-final/weights/best.pt')
+    
+    # Predict on an image
+    results = model.predict('path/to/image.jpg', conf=0.25)
+    
+    # Predict on all images in a folder
+    results = model.predict('path/to/images/', save=True)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📞 SUPPORT:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Check TRAINING_LOG.txt for detailed error messages
+2. Read README.md for troubleshooting
+3. Visit: https://docs.ultralytics.com/ for YOLOv8 help
+4. Check your dataset structure in the "dataset/" folder
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ YOU'RE ALL SET! Run: python train_local.py
+
+═══════════════════════════════════════════════════════════════════════════════

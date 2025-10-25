@@ -1,0 +1,48 @@
+WEDTECT YOLOv8 OBB TRAINING LOG - GPU VERSION
+======================================================================
+
+[2025-10-25 21:25:40] 🚀 Starting Wedtect YOLOv8 OBB Training on GPU
+[2025-10-25 21:25:40] ======================================================================
+[2025-10-25 21:25:40] 
+1️⃣  EXTRACTING DATASET
+[2025-10-25 21:25:40] Found dataset zip: Wedtect Segmentation.v2i.yolov8-obb.zip (54.3 MB)
+[2025-10-25 21:25:40] ✅ Dataset already extracted
+[2025-10-25 21:25:40] 
+2️⃣  LOCATING DATA.YAML
+[2025-10-25 21:25:40] ✅ Found data.yaml: C:\Users\ahmed\OneDrive\Desktop\Everything\Stage Wedtect\dataset\data.yaml
+[2025-10-25 21:25:40] 
+Dataset YAML content:
+train: train/images
+val: valid/images
+test: test/images
+
+names: 
+  0: crack
+  1: dent
+  2: hole
+  3: leak
+[2025-10-25 21:25:40] 
+3️⃣  IMPORTING YOLOv8
+[2025-10-25 21:25:41] ✅ PyTorch version: 2.7.1+cu118
+[2025-10-25 21:25:41] ✅ CUDA available: True
+[2025-10-25 21:25:41] ✅ GPU: NVIDIA GeForce RTX 4070 Laptop GPU
+[2025-10-25 21:25:41] ✅ GPU Memory: 8.59 GB
+[2025-10-25 21:25:41] 
+4️⃣  STARTING TRAINING
+[2025-10-25 21:25:41] Loading YOLOv8 OBB model...
+[2025-10-25 21:25:41] ✅ Model loaded
+[2025-10-25 21:25:41] 
+🚀 Beginning training on GPU...
+[2025-10-25 21:25:41] ======================================================================
+[2025-10-25 21:51:19] 
+======================================================================
+[2025-10-25 21:51:19] ✅ TRAINING COMPLETED!
+[2025-10-25 21:51:19] 
+5️⃣  RESULTS
+[2025-10-25 21:51:19] ✅ Results folder: C:\Users\ahmed\OneDrive\Desktop\Everything\Stage Wedtect\runs\obb\wedtect-obb-final
+[2025-10-25 21:51:19] ✅ Check: results.csv for metrics
+[2025-10-25 21:51:19] ✅ Check: results.png for training graphs
+[2025-10-25 21:51:19] ✅ Check: predict/ for test predictions
+[2025-10-25 21:51:19] 
+🎉 TRAINING PIPELINE COMPLETE!
+[2025-10-25 21:51:19] ======================================================================

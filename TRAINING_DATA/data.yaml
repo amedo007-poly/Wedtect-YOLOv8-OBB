@@ -1,0 +1,9 @@
+train: train/images
+val: valid/images
+test: test/images
+
+names: 
+  0: crack
+  1: dent
+  2: hole
+  3: leak
