@@ -44,7 +44,7 @@ This project trains a YOLOv8 Oriented Bounding Box (OBB) model on the **Wedtect 
 
 - **Model Size**: ~11 MB├── runs/                                   # (Auto-generated) Training outputs
 
-- **Training Time**: 2.5-3 hours (RTX 4070)│   └── obb/
+- **Training Time**: 0.5-0.75 hours (RTX 4070 Mobile)│   └── obb/
 
 - **Inference Speed**: 5-10 ms per image│       └── wedtect-obb-final/
 
