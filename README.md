@@ -456,6 +456,100 @@ pip install -r DOCUMENTATION/requirements.txt
 - [ ] Real-time video processing pipeline
 - [ ] Model quantization for mobile deployment
 
+## 🌐 Dataset Expansion via Web Scraping
+
+### Expand Your Dataset with Web-Scraped Images
+
+Need to improve model performance? Scrape additional training images automatically!
+
+#### Quick Start
+
+```bash
+# Download ~1000 images from Google Images
+python scrape_google_images.py
+
+# Monitor progress
+python monitor_scraper.py
+```
+
+#### What Gets Scraped
+
+- 📊 **~1000 images total** (250 per defect type)
+- 🔨 **Crack** images: Concrete & structural cracks
+- 🚗 **Dent** images: Metal & impact damage
+- ⚫ **Hole** images: Corrosion & puncture holes
+- 💧 **Leak** images: Water damage & moisture marks
+
+#### Output Structure
+
+```
+SCRAPED_IMAGES/
+├── crack/  (250 images)
+├── dent/   (250 images)
+├── hole/   (250 images)
+└── leak/   (250 images)
+```
+
+#### Full Workflow: Scrape → Annotate → Retrain
+
+**Step 1: Scrape Images** (45 min)
+```bash
+python scrape_google_images.py
+```
+
+**Step 2: Review Quality** (10 min)
+```bash
+explorer SCRAPED_IMAGES
+# Remove low-quality/blurry images
+```
+
+**Step 3: Annotate with Roboflow** (1-2 hours)
+1. Visit https://roboflow.com
+2. Upload `SCRAPED_IMAGES/` folder
+3. Use AI auto-labeling
+4. Export as YOLOv8 format
+5. Download to `Roboflow_Output/`
+
+**Step 4: Merge Datasets** (2 min)
+```bash
+python prepare_data_for_retraining.py
+```
+
+**Step 5: Retrain Model** (2-3 hours)
+```bash
+python train_gpu.py
+```
+
+**Step 6: Evaluate & Deploy** (10 min)
+```bash
+python evaluate_and_test.py
+git add . && git commit -m "Update: Improved model with expanded dataset" && git push
+```
+
+#### Available Scraping Tools
+
+| Script | Method | Speed | Reliability |
+|--------|--------|-------|-------------|
+| **scrape_google_images.py** | iCrawler (Google Images) | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| scrape_alternative.py | bing-image-downloader | ⭐⭐ | ⭐⭐⭐ |
+| scrape_defect_images.py | Bing Direct API | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+
+#### Expected Results
+
+Starting with 1,224 images + 1,000 scraped = **2,224 total images**
+
+**Predicted Improvements:**
+- Precision: 83.92% → 85-87% (+2-4%)
+- Recall: 86.06% → 88-91% (+2-5%)
+- mAP@50: 87.22% → 89-92% (+2-4%)
+
+#### Documentation
+
+- 📖 **WORKFLOW_COMPLETE.md** - Complete pipeline guide
+- 📋 **SCRAPING_GUIDE.md** - Detailed scraping documentation
+- ⚡ **SCRAPING_START.md** - Quick start guide
+- 📊 **SCRAPING_RESULTS.md** - Summary of downloaded images
+
 ## 📞 Troubleshooting
 
 ### ❌ GPU Not Detected
@@ -544,7 +638,13 @@ For questions or issues:
 ---
 
 **Created**: October 25, 2025  
-**Last Updated**: October 25, 2025  
-**Status**: ✅ Production Ready 🚀
+**Last Updated**: October 26, 2025  
+**Status**: ✅ Production Ready + Web Scraping Infrastructure 🚀
+
+### Recent Updates
+- ✨ Added web scraping infrastructure for dataset expansion
+- 🌐 Support for Google Images, Bing, and direct API scraping
+- 📊 Downloaded 340+ images from multiple sources
+- 🔄 Full annotation & retraining pipeline
 
 Made with ❤️ using YOLOv8 & PyTorch
